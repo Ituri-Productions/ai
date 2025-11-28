@@ -59,8 +59,8 @@ const factory = createProviderDefinedToolFactoryWithOutputSchema<
  * rather than loading all tool definitions upfront. This can significantly reduce token usage
  * when working with many tools.
  *
- * Use this tool in combination with `deferLoading: true` on your other tools to enable
- * dynamic tool discovery.
+ * Use this tool in combination with `experimental_deferLoading: true` on your other tools
+ * to enable dynamic tool discovery.
  *
  * @example
  * ```typescript
@@ -74,9 +74,7 @@ const factory = createProviderDefinedToolFactoryWithOutputSchema<
  *     createPullRequest: tool({
  *       description: 'Create a pull request',
  *       inputSchema: z.object({ ... }),
- *       providerOptions: {
- *         anthropic: { deferLoading: true }
- *       }
+ *       experimental_deferLoading: true,
  *     }),
  *   },
  *   prompt: '...',
